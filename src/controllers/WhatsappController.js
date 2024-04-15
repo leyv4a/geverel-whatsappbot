@@ -14,7 +14,6 @@ export const verifyToken = (req,res) => {
     }
 
 
-res.send('Verify token')
 
 }
 
