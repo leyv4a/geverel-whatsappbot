@@ -30,9 +30,9 @@ export const receivedMessage = (req,res) => {
             var number = message['from'];
 
             var text = getUserText(message);
-            myConsole.log("El usuario dijo "+text, number)
+            myConsole.log(text)
 
-            sendMessageWhatsapp(text, )
+            sendMessageWhatsapp(text,number )
 
         }
 
