@@ -1,6 +1,6 @@
 export const verifyToken = (req,res) => {
     try {   
-        var accessToken = GSAFJSAOFJSANOAHNSAKFNSAOKFJSAOK;
+        var accessToken = 'GSAFJSAOFJSANOAHNSAKFNSAOKFJSAOK';
         var token = req.query('hub.verify_token');
         var challenge = req.query('hub.challenge');
         
