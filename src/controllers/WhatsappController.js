@@ -29,6 +29,7 @@ export const receivedMessage = (req,res) => {
             var message = messageObject[0]
             var number = message['from'];
              number = number.replace('521', '52');
+             console.log(number)
             var text = getUserText(message);
             myConsole.log(text)
 
