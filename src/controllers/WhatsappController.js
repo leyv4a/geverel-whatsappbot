@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { type } from 'os';
+import {sendMessageWhatsapp} from '../services/WhatsappService.js'
 const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
 
 export const verifyToken = (req,res) => {
@@ -25,11 +25,17 @@ export const receivedMessage = (req,res) => {
         var changes = (entry['changes'][0]);
         var value = changes["value"];
         var messageObject = value['messages'];
-        var message = messageObject[0]
-        var text = getUserText(message);
- 
+        if (typeof messageObject != undefined) {
+            var message = messageObject[0]
+            var number = message['from'];
 
-        myConsole.log(text)
+            var text = getUserText(message);
+            myConsole.log("El usuario dijo "+text, number)
+
+            sendMessageWhatsapp(text, )
+
+        }
+
         res.send('EVENT_RECEIVED');
     } catch (e) {
         myConsole.log(e)
