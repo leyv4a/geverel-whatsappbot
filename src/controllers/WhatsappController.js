@@ -1,8 +1,8 @@
 export const verifyToken = (req,res) => {
     try {   
         var accessToken = 'GSAFJSAOFJSANOAHNSAKFNSAOKFJSAOK';
-        var token = req.query('hub.verify_token');
-        var challenge = req.query('hub.challenge');
+        var token = req.query['hub.verify_token'];
+        var challenge = req.query['hub.challenge'];
         
         if(challenge != null && token != null && token === accessToken) {
             res.send(challenge)
