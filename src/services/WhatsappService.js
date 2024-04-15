@@ -17,7 +17,8 @@ import https from 'https';
         body: data,
         headers: {
             'Content-Type': 'application/json',
-            Authorization : `Bearer ${process.env.BEARER}`
+            //  Authorization : `Bearer ${process.env.BEARER}`
+            Authorization : 'Bearer EAALVz16akDcBOz4zZBRfCBH4qrg9ouVNmLGkaolZAeYk95rwmRsltKwFXvIO4Xp7C2UHAdYXwRyEVBTYm6yLUtjvvjVUpEICuXMYxZCHan3NcZBDZA6unJ3PUikgjkwDahNKZBYPYDxau9EzRIvHW7MdfsCVpIeI2XgF3c1blvfyjo3c29W6ZBDpdcBmW8VtWfsIzHBnDq6ZCIxIAoaOaPU0jHN2sdH9izBD8cU9'
         },
     }
 
