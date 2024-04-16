@@ -28,12 +28,12 @@ export const receivedMessage = (req,res) => {
         if (typeof messageObject != undefined) {
             var message = messageObject[0]
             var number = message['from'];
-             number = number.replace('521', '52');
-             console.log(number)
+            number = number.replace('521', '52');
+            
             var text = getUserText(message);
             myConsole.log(text)
 
-            sendMessageWhatsapp(text,number )
+            sendMessageWhatsapp(`El usuario dijo ${text}`,number )
 
         }
 
