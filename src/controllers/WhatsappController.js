@@ -1,7 +1,6 @@
 import fs from 'fs';
-import {sendMessageWhatsapp} from '../services/WhatsappService.js'
-import {sampleText, sampleAudio, sampleButtons, sampleDocument, sampleImage, sampleList, sampleLocation, sampleVideo} from '../shared/SampleModel.js';
 const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
+import ProcessMessage from '../shared/ProcessMessage';
 
 export const verifyToken = (req,res) => {
     try {   
@@ -32,31 +31,34 @@ export const receivedMessage = (req,res) => {
             number = number.replace('521', '52');
             var text = getUserText(message);
             myConsole.log(text)
-
-            if (text === 'text') {
-                let model = sampleText(`El usuario dijo: ${text}`, number);
-                sendMessageWhatsapp(model);
-            }else if (text === 'image') {
-                let model = sampleImage(number);
-                sendMessageWhatsapp(model);
-            }else if (text === 'audio') {
-                let model = sampleAudio(number);
-                sendMessageWhatsapp(model);
-            }else if (text === 'bonoes') {
-                let model = sampleButtons(number);
-                sendMessageWhatsapp(model);
-            }else if (text === 'lista') {
-                let model = sampleList(number);
-                sendMessageWhatsapp(model);
-            }else if (text === 'ubi') {
-                let model = sampleLocation(number);
-                sendMessageWhatsapp(model);
-            }else {
-                let model = sampleText('No entiendo',number);
-                sendMessageWhatsapp(model);
+            if (text.trim != '') {
+                ProcessMessage.process(text, number)
             }
 
-            // sendMessageWhatsapp(data)
+            // sendMessageWhatsapp(`El usuario dijo: ${text}`,number )
+            // if (text === 'text') {
+            //     let model = sampleText(`El usuario dijo: ${text}`, number);
+            //     sendMessageWhatsapp(model);
+            // }else if (text === 'image') {
+            //     let model = sampleImage(number);
+            //     sendMessageWhatsapp(model);
+            // }else if (text === 'audio') {
+            //     let model = sampleAudio(number);
+            //     sendMessageWhatsapp(model);
+            // }else if (text === 'bonoes') {
+            //     let model = sampleButtons(number);
+            //     sendMessageWhatsapp(model);
+            // }else if (text === 'lista') {
+            //     let model = sampleList(number);
+            //     sendMessageWhatsapp(model);
+            // }else if (text === 'ubi') {
+            //     let model = sampleLocation(number);
+            //     sendMessageWhatsapp(model);
+            // }else {
+            //     let model = sampleText('No entiendo',number);
+            //     sendMessageWhatsapp(model);
+            // }
+
         }
 
         res.send('EVENT_RECEIVED');
