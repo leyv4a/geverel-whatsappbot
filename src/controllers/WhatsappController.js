@@ -1,6 +1,6 @@
 import fs from 'fs';
 const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
-import ProcessMessage from '../shared/ProcessMessage';
+import ProcessMessage from '../shared/ProcessMessage.js';
 
 export const verifyToken = (req,res) => {
     try {   
