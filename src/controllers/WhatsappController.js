@@ -1,5 +1,6 @@
 import fs from 'fs';
 import {sendMessageWhatsapp} from '../services/WhatsappService.js'
+import {sampleText, sampleAudio, sampleButtons, sampleDocument, sampleImage, sampleList, sampleLocation, sampleVideo} from '../shared/SampleModel.js';
 const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
 
 export const verifyToken = (req,res) => {
@@ -29,12 +30,33 @@ export const receivedMessage = (req,res) => {
             var message = messageObject[0]
             var number = message['from'];
             number = number.replace('521', '52');
-            
             var text = getUserText(message);
             myConsole.log(text)
 
-            sendMessageWhatsapp(`El usuario dijo ${text}`,number )
+            if (text === 'text') {
+                let model = sampleText(`El usuario dijo: ${text}`, number);
+                sendMessageWhatsapp(model);
+            }else if (text === 'image') {
+                let model = sampleImage(number);
+                sendMessageWhatsapp(model);
+            }else if (text === 'audio') {
+                let model = sampleAudio(number);
+                sendMessageWhatsapp(model);
+            }else if (text === 'bonoes') {
+                let model = sampleButtons(number);
+                sendMessageWhatsapp(model);
+            }else if (text === 'lista') {
+                let model = sampleList(number);
+                sendMessageWhatsapp(model);
+            }else if (text === 'ubi') {
+                let model = sampleLocation(number);
+                sendMessageWhatsapp(model);
+            }else {
+                let model = sampleText('No entiendo',number);
+                sendMessageWhatsapp(model);
+            }
 
+            // sendMessageWhatsapp(data)
         }
 
         res.send('EVENT_RECEIVED');
@@ -53,7 +75,6 @@ const getUserText = (message) => {
     }else if (typeMessage === 'interactive') {
         var interactiveObject = message['interactive']
         var typeInteractive = interactiveObject['type']
-
         if (typeInteractive === 'button_reply') {
             text = (interactiveObject['button_reply'])['title'];
         }else if (typeInteractive === 'list_reply') {
