@@ -12,8 +12,11 @@ const process = (textUser, number) => {
     }else if (textUser.includes('gracias')) {
         let model = WhatsappModel.messageText('¡Fue un placer!', number); 
         models.push(model);
-    }else if (textUser.includes('adios' || 'adiós' ||'bye')) {
-        let model = WhatsappModel.messageText('¡Fue un placer!', number); 
+    }else if (textUser.includes('adios')
+    ||textUser.includes('adiós')
+    ||textUser.includes('bye')
+    ) {
+        let model = WhatsappModel.messageText('¡Nos vemos pronto!', number); 
         models.push(model);
     }else{
         let model = WhatsappModel.messageText('No entendí :(', number); 
