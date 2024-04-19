@@ -28,10 +28,10 @@ const optionList = ( number) => {
               "text": "*¡No dudes en preguntar!*"
             },
             "action": {
-              "button": "Servicios",
+              "button": "¡Contactanos!",
               "sections":[
                 {
-                  "title":"your-section",
+                  "title":"SERVICIOS",
                   "rows": [
                     {
                       "id":"001",
@@ -44,7 +44,21 @@ const optionList = ( number) => {
                       "description": "-*-"          
                     }
                   ]
-                }
+                }, {
+                    "title":"CENTRO DE ATENCIóN",
+                    "rows": [
+                      {
+                        "id":"003",
+                        "title": "Ubicacion",
+                        "description": "-*-"          
+                      },
+                      {
+                        "id":"004",
+                        "title": "Correo",
+                        "description": "-*-"          
+                      }
+                    ]
+                  }
               ]
             }
           }

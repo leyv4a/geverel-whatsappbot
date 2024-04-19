@@ -10,6 +10,19 @@ export const sampleText = (response, number) => {
   return data;
 }
 
+export const sampleTextUrl = (response, number) => {
+  const data = JSON.stringify({
+      "messaging_product": "whatsapp",
+      "to": number,
+      "type": "text",
+      "text": {
+          "preview_url": true,
+          "body": response+' Visita la web: https://www.geverel.com'
+      }
+  })
+return data;
+}
+
 export const sampleImage = (number) => {
     const data = JSON.stringify({
         "messaging_product": "whatsapp",

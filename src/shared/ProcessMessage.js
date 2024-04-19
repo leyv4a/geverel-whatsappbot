@@ -7,10 +7,10 @@ const process = (textUser, number) => {
 
     if (textUser.includes('hola')) {
         //Saludamos
-        let model = WhatsappModel.messageText('Hola soy Gevi, un gusto saludarte', number);
-        models.push(model);
         var modelList = WhatsappModel.optionList(number);
         models.push(modelList);
+        let model = WhatsappModel.messageText('Hola soy Gevi, un gusto saludarte', number);
+        models.push(model);
         }else if (textUser.includes('gracias')) {
         let model = WhatsappModel.messageText('¡Fue un placer!', number); 
         models.push(model);
@@ -19,6 +19,12 @@ const process = (textUser, number) => {
     ||textUser.includes('bye')
     ) {
         let model = WhatsappModel.messageText('¡Nos vemos pronto!', number); 
+        models.push(model);
+    }else if (textUser.includes('pagina')) {
+        let model = WhatsappModel.messageText('¡Hare una pagina web!', number); 
+        models.push(model);
+    }else if (textUser.includes('ubicacion')) {
+        let model = WhatsappModel.messageText('¡Hare una pagina web!', number); 
         models.push(model);
     }else{
         let model = WhatsappModel.messageText('No entendí :(', number); 
