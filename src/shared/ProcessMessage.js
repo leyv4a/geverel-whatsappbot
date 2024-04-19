@@ -9,7 +9,9 @@ const process = (textUser, number) => {
         //Saludamos
         let model = WhatsappModel.messageText('Hola soy Gevi, un gusto saludarte', number);
         models.push(model);
-    }else if (textUser.includes('gracias')) {
+        var modelList = WhatsappModel.optionList(number);
+        models.push(modelList);
+        }else if (textUser.includes('gracias')) {
         let model = WhatsappModel.messageText('¡Fue un placer!', number); 
         models.push(model);
     }else if (textUser.includes('adios')
