@@ -31,10 +31,8 @@ const receivedMessage = async (req, res) => {
             number = number.replace('521', '52');
             var text = getUserText(message);
             myConsole.log(text);
-            console.log(text);
-            console.log(number)
+  
             if (text.trim != '') {
-                console.log('El mensaje se recibio, va a Process')
                 await ProcessMessage.process(text, number);
             }
         }

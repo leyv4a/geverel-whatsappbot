@@ -2,7 +2,6 @@ const https = require('https');
 require('dotenv').config();
 
 const sendMessageWhatsapp = (data) => {
-    console.log('Se recibio un mensaje para mandar a whatsapp')
     const options = {
         host: "graph.facebook.com",
         path: "/v19.0/199786023226029/messages",
