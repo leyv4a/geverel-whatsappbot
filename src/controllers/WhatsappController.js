@@ -1,6 +1,7 @@
 const fs = require('fs');
 const ProcessMessage = require('../shared/ProcessMessage.js');
 
+
 const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
 
 const verifyToken = (req, res) => {
